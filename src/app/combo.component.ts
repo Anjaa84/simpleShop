@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {ComboServices} from './combo.services';
 @Component({
 selector: 'app-combo',
 template: `
@@ -15,7 +16,10 @@ template: `
 
 export class ComboComponent {
  title = 'List of combo';
- combos = ['c1', 'c2', 'c3'];
+ combos;
+ constructor(service: ComboServices){
+     this.combos = service.getCourses();
+ }
 
 
 }
